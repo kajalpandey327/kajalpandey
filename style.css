@@ -1,0 +1,581 @@
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+* 
+{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Vortigra Neue', sans-serif;
+  background: #121212;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: #e1ff00;
+}
+
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* ya center agar poora hero center chahiye */
+  width: 100%;
+  text-align: center;
+}
+
+.hero-banner {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  animation: float 10s ease-in-out infinite alternate; /* image ko halki si float animation */
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-text h2 {
+  font-size: 6em;
+  font-weight: 600;
+  color: #e1ff00;
+  text-shadow: 0 0 20px rgb(255, 238, 0);
+  margin: 10px 0 30px 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.hero-text {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  padding: 40px 20px;
+  margin: 0 auto;
+}
+
+.hero-text h1 {
+  font-size: 10em;
+  font-weight: 1000;
+  margin: 0;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero-text h2 {
+  font-size: 4em;
+  font-weight: 600;
+  color: #fffb00;
+  margin: 10px 0 30px 0;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.5s;
+}
+.simple-slider {
+  display: flex;
+  gap: 30px;  /* Thoda jyada gap */
+  justify-content: center; /* Center images horizontally */
+  flex-wrap: wrap;
+}
+
+.simple-slider img {
+  width: 300px;   /* Pehle 250px tha, ab bada */
+  height: 300px;  /* Pehle 250px tha, ab bada */
+  object-fit: cover;
+  border-radius: 15px; /* Thoda zyada rounded */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.simple-slider img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(242, 255, 0, 0.103);
+}
+
+@keyframes float {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-text .btn {
+  margin-top: 20px; /* ya jitna space chahiye */
+}
+
+.grid-item {
+  background: #1a1a1a;
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 20px rgba(255, 242, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  perspective: 800px; /* ✅ Needed for 3D */
+}
+
+.grid-item:hover {
+  transform: translateY(-5px) rotateX(5deg) rotateY(5deg); /* ✅ 3D tilt */
+  box-shadow: 0 0 10px rgba(255, 242, 0, 0.2);
+}
+
+/* ✅ Image: ensure 3D stays smooth */
+.grid-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transform: translateZ(0);
+  transition: transform 0.4s ease;
+}
+
+.grid-item:hover img {
+  transform: scale(1.05) translateZ(20px); /* ✅ slight pop-out */
+}
+
+.grid-item h3 {
+  margin: 15px 0 10px;
+  font-size: 1.2em;
+}
+
+/* ✅ Rectangular small View More button with arrow slide */
+.grid-item .view-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 15px;
+  background: #e1ff00;
+  color: #121212;
+  font-size: 0.75em;
+  font-weight: 600;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-item .view-more-btn::after {
+  content: '→';
+  display: inline-block;
+  transform: translateX(-5px);
+  transition: transform 0.3s ease;
+}
+
+.grid-item .view-more-btn:hover {
+  background: #ffff66;
+  transform: translateY(-2px);
+}
+
+.grid-item .view-more-btn:hover::after {
+  transform: translateX(3px); /* ✅ Arrow slides right */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* ✅ Always 4 columns */
+  gap: 25px;
+  padding: 0 20px;
+}
+.grid-item {
+  background: #1a1a1a;
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 20px rgba(225, 255, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;              /* ✅ */
+  flex-direction: column;     /* ✅ */
+}
+
+.grid-item h3 {
+  margin: 15px 0 10px;
+  font-size: 1.2em;
+  flex-grow: 1;               /* ✅ pushes button down */
+}
+
+.grid-item .view-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 15px;
+  background: #e1ff00;
+  color: #121212;
+  font-size: 0.75em;
+  font-weight: 600;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.view-more-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.view-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 20px;
+  background: #e1ff00;
+  color: #121212;
+  font-size: 0.8em;
+  font-weight: 600;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.view-more-btn:hover {
+  background: #ffff66;
+  transform: translateY(-2px);
+}
+
+.view-more-btn::after {
+  content: '→';
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.view-more-btn:hover::after {
+  transform: translateX(3px);
+}
+.about {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.section-title {
+  font-size: 3em;
+  margin-bottom: 40px;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.about-content img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  /* ✅ Pop-out start */
+  transform: scale(0.8);
+  opacity: 0;
+  animation: popOut 0.8s ease forwards;
+
+  /* ✅ Yellow glow */
+  box-shadow: 0 0 px #e1ff00;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-content img:hover {
+  transform: scale(1.05); /* thoda aur pop on hover */
+  box-shadow: 0 0 40px #e1ff00;
+}
+
+/* Pop-Out Keyframe Animation */
+@keyframes popOut {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.about-text {
+  max-width: 900px;
+  line-height: 1.8;
+}
+
+.about-text p {
+  margin-bottom: 30px;
+}
+
+.about-text ul {
+  list-style: disc;
+  padding-left: 40px;
+  text-align: left;
+  display: inline-block;
+}
+
+.about-text li {
+  margin: 10px 0;
+}
+
+/* ✅ Correct Fade Animation */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.section-title.fade { animation-delay: 0.2s; }
+.about-content img.fade { animation-delay: 0.4s; } /* still used for delay */
+.about-text p.fade { animation-delay: 0.6s; }
+.about-text ul li.fade:nth-child(1) { animation-delay: 0.8s; }
+.about-text ul li.fade:nth-child(2) { animation-delay: 1s; }
+.about-text ul li.fade:nth-child(3) { animation-delay: 1.2s; }
+
+.cards-section {
+  text-align: center;
+  margin: 60px 0;
+}
+
+.cards-title {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.card {
+  background: #1f1f1f;
+  padding: 30px;
+  border-radius: 15px;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card {
+  position: relative;
+  display: block;
+  background: #1f1f1f;
+  padding: 30px;
+  border-radius: 15px;
+  width: 270px;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  flex: 0 0 auto;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ffff00, transparent);
+  transition: all 0.6s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 40px rgba(255, 255, 0, 0.2);
+}
+
+.card:hover::after {
+  left: 100%;
+}
+.cards-title {
+  position: relative;   /* जरूरी */
+  display: inline-block; /* ताकि background text ke piche rahe */
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #000;   /* ✅ अब text black हो जाएगा */
+}
+
+.cards-title::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5px; /* थोड़ा ऊपर नीचे adjust कर सकते हो */
+  width: 120%;
+  height: 50px; /* ये बॉक्स की height है */
+  background: #e1ff00;
+  z-index: -1; /* पीछे ले जाने के लिए */
+  border-radius: 4px;
+}
+.cards-title {
+  position: relative;
+  display: inline-block;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #000;
+  cursor: pointer; /* hover pointer */
+  transition: transform 0.3s ease; /* smooth motion */
+}
+
+.cards-title::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5px;
+  width: 120%;
+  height: 50px;
+  background: #e1ff00;
+  z-index: -1;
+  border-radius: 4px;
+  transition: transform 0.3s ease; /* box ke liye bhi */
+}
+
+.cards-title:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.cards-title:hover::before {
+  transform: translate(-50%, -2px) scaleX(1.05);
+}
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact input, .contact textarea {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #1f1f1f;
+  color: #fff;
+}
+
+.contact button {
+  background: #e1ff00;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.socials {
+  margin-top: 20px;
+}
+
+.socials a {
+  margin: 0 10px;
+  color: #e1ff00;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #181818;
+}
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-animate.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+
+  .hero-text h1 {
+    font-size: 2.5em;
+  }
+
+  .hero-text h2 {
+    font-size: 2em;
+  }
+
+  .simple-slider {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .simple-slider img {
+    width: 90%;
+    height: auto;
+  }
+
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about-content img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .section {
+    padding: 40px 20px;
+  }
+
+  .section-title {
+    font-size: 2em;
+  }
+
+  .about-text ul {
+    padding-left: 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    padding: 20px;
+    font-size: 0.9em;
+  }
+}

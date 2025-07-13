@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Designer Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container scroll-animate">
+      <img src="Untitled-1.jpg" alt="Banner Image" class="hero-banner scroll-animate">
+      <div class="hero-text scroll-animate">
+        <h1>Hello</h1>
+        <h2>I'm Kajal Pandey</h2>
+        <p>Design isn’t just a skill, it’s my language. A visual way to express what words often can’t.</p>
+        <p>A design graduate with a sharp eye for brand identity, illustration, and print. I create clean, purposeful visuals that tell a story and leave a lasting impression.</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="portfolio" class="portfolio section">
+  <h2 class="section-title scroll-animate">My Work</h2>
+  <div class="simple-slider">
+    <img src="1.png" alt="Project 1" class="scroll-animate">
+    <img src="2.jpg" alt="Project 2" class="scroll-animate">
+    <img src="3.jpg" alt="Project 3" class="scroll-animate">
+    <img src="4.png" alt="Project 4" class="scroll-animate">
+  </div>
+  <div class="view-more-container">
+    <a href="all-projects.html" class="view-more-btn">View More</a>
+  </div>
+</section>
+
+  
+
+  <section id="about" class="about">
+    <h2 class="section-title scroll-animate">About Me</h2>
+    <div class="about-content">
+      <img src="1000191891.png" alt="Your Photo" class="scroll-animate" />
+      <div class="about-text">
+        <p class="scroll-animate">
+          I’m Kajal Pandey — a graphic designer with 3 years of professional experience in crafting thoughtful, visually compelling
+          brand identities, print designs, and digital creatives. My approach to design is rooted in simplicity, purpose, and
+          storytelling — ensuring every visual leaves a lasting impression. While my core expertise lies in graphic design, I also
+          have a strong foundational knowledge in video editing, web design, and UI/UX. This allows me to understand the broader
+          creative landscape and deliver designs that work seamlessly across mediums. I'm constantly exploring, learning, and evolving
+          — driven by curiosity and a passion for clean, impactful design.
+        </p>
+        <ul>
+          <li class="scroll-animate">Adobe Photoshop, Illustrator, InDesign, CorelDRAW, Figma, Canva, UI/UX</li>
+          <li class="scroll-animate">Adobe After Effects, Premiere Pro, CapCut, VN</li>
+          <li class="scroll-animate">HTML, CSS, JavaScript</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="cards-section">
+  <h2 class="cards-title">Visit Brand Page</h2>
+  <div class="cards">
+  <a href="https://www.instagram.com/thedigitalally/" class="card scroll-animate">
+    <h3>Digital Ally (Agency)</h3>
+    <p>Worked on diverse client projects — designed social media creatives, printables, mockups, and visual content for various brands.</p>
+  </a>
+
+  <a href="https://www.instagram.com/mauli.official/" class="card scroll-animate">
+    <h3>Red Ochre Studio LLP (Mauli)</h3>
+    <p>Handled product photoshoots, background removals, and created engaging social media graphics and short-form videos.</p>
+  </a>
+
+  <a href="https://www.instagram.com/ennoble_ip/" class="card scroll-animate">
+    <h3>Ennoble IP</h3>
+    <p>Designed logos, infographics, carousels, thumbnails, printables, and creative social media posts with a strong focus on branding and visual clarity.</p>
+  </a>
+
+  <a href="https://www.instagram.com/sherealtherealshe/" class="card scroll-animate">
+    <h3>Shereal</h3>
+    <p>Designed a variety of digital and print assets including logos, social media creatives, carousels, thumbnails, and branding visuals tailored for online campaigns and promotions.</p>
+  </a>
+
+  <a href="https://www.instagram.com/ciir_2021/" class="card scroll-animate">
+    <h3>Ciir & Innovasthan</h3>
+    <p>Designed impactful logos, infographics, carousels, and printables. Contributed to Innovasthan’s launch with bold, startup-focused visuals.</p>
+  </a>
+</div>
+</div>
+
+  <section id="contact" class="contact section">
+    <h2 class="section-title scroll-animate">Contact Me</h2>
+    <form id="contactForm" class="scroll-animate">
+  <input type="text" id="name" placeholder="Name" required />
+  <input type="text" id="company" placeholder="Company Name" required />
+  <textarea id="message" placeholder="Message"></textarea>
+  <button type="submit">Send</button>
+</form>
+    <div class="socials scroll-animate">
+      <a href="#">Dribbble</a>
+      <a href="#">Behance</a>
+      <a href="#">Instagram</a>
+    </div>
+  </section>
+
+  <footer class="scroll-animate">
+    <p>© 2025 Your Name. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    document.querySelectorAll('.scroll-animate').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+  <script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const company = document.getElementById('company').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    const whatsappNumber = '919310280962'; // ← Apna WhatsApp number
+
+    const text = `Name: ${name}%0ACompany: ${company}%0AMessage: ${message}`;
+    const url = `https://wa.me/${whatsappNumber}?text=${text}`;
+
+    window.open(url, '_blank');
+  });
+</script>
+</body>
+</html>
+</body>
+</html> 
